@@ -1,10 +1,17 @@
-NAME=cv
+# Makefile for building CV with selectable Catppuccin theme
 
-all:
-	latexmk -pdf ${NAME}.tex
+# Default theme
+THEME ?= mocha
+TEX = pdflatex
+SRC = cv.tex
+OUT = cv.pdf
+
+all: $(OUT)
+
+$(OUT): $(SRC)
+	$(TEX) "\def\CVTheme{$(THEME)} \input{$(SRC)}"
 
 clean:
-	rm -f ${NAME}.aux ${NAME}.bbl ${NAME}.bcf ${NAME}.fdb_latexmk ${NAME}.fls ${NAME}.log ${NAME}.out ${NAME}.run.xml ${NAME}.blg ${NAME}.toc *\~
+	rm -f *.aux *.log *.out *.toc *.bbl *.blg $(OUT)
 
-distclean: clean
-	rm -f ${NAME}.pdf
+.PHONY: all clean

@@ -49,7 +49,8 @@
 %----------------------------------------------------------------------------------------
 \usepackage{url}
 \usepackage{parskip} 	
-\usepackage[mocha]{catppuccinpalette}
+\PassOptionsToPackage{\CVTheme}{catppuccinpalette}
+\usepackage{catppuccinpalette}
 
 %other packages for formatting
 \RequirePackage{color}
@@ -82,14 +83,14 @@
 \titlespacing{\section}{0pt}{10pt}{10pt}
 
 %for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+% \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
 
 %Setup hyperref package, and colours for links
 \usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\definecolor{linkcolour}{named}{CtpBlue}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
+% \addbibresource{citations.bib}
+% \setlength\bibitemsep{1em}
 
 %for social icons
 \usepackage{fontawesome5}
@@ -130,6 +131,9 @@
 
 % non-numbered pages
 \pagestyle{empty} 
+% color
+\color{CtpText}
+\pagecolor{CtpBase} 
 
 %----------------------------------------------------------------------------------------
 %	TITLE
@@ -196,11 +200,11 @@ long long line of blah blah that will wrap when the table fills the column width
 %----------------------------------------------------------------------------------------
 %	PUBLICATIONS
 %----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
+% \section{Publications}
+% \begin{refsection}[citations.bib]
+% \nocite{*}
+% \printbibliography[heading=none]
+% \end{refsection}
 
 %----------------------------------------------------------------------------------------
 %	SKILLS
